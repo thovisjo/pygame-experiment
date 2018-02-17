@@ -3,7 +3,7 @@ import random, sys, pygame
 assert sys.version_info >= (3,4), "This script requires at least Python 3.4"
 
 screensize = (800,600)
-FPS = 120
+FPS = 60
 black = (0,0,0)
 white = (255,255,255)
 orange = (255,150,0)
@@ -68,20 +68,16 @@ def main():
                 pygame.quit()
                 sys.exit(0)
 
-
-            keys = pygame.key.get_pressed()
-            
-            if keys[pygame.K_w] and player.playerY > 78:
-                player.change_position(yPlus = -(player.speed))
-
-            if keys[pygame.K_s] and player.playerY < 582:
-                player.change_position(yPlus = (player.speed))
-
-            if keys[pygame.K_a] and player.playerX > 3:
-                player.change_position(xPlus = -(player.speed))
-
-            if keys[pygame.K_d] and player.playerX < 782:
-                player.change_position(xPlus = (player.speed))
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_w] and player.playerY > 78:
+            player.change_position(yPlus = -(player.speed))
+        if keys[pygame.K_s] and player.playerY < 582:
+            player.change_position(yPlus = (player.speed))
+        if keys[pygame.K_a] and player.playerX > 3:
+            player.change_position(xPlus = -(player.speed))
+        if keys[pygame.K_d] and player.playerX < 782:
+            player.change_position(xPlus = (player.speed))
+                    
         playerXRange = set(range(player.playerX, player.playerX + 15))
         playerYRange = set(range(player.playerY, player.playerY + 15))
 
